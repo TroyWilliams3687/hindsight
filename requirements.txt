@@ -1,0 +1,6 @@
+# Add the linters and code formatters
+flake8
+black
+
+click
+
