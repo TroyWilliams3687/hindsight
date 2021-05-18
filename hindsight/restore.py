@@ -89,15 +89,21 @@ def restore(*args, **kwargs):
 
         if 'Firefox' in title:
 
+            # apply a kludge to get it to restore properly...
+
             x -= 7
             y -= 8
 
         elif 'Sublime Text' in title:
 
+            # apply a kludge to get it to restore properly...
+
             x = math.floor(x*scale_x) + 2
             y = math.floor(y*scale_y) + 121
 
         elif 'Discord' in title:
+
+            # apply a kludge to get it to restore properly...
 
             x -= 10
             # y = math.floor(y*scale_y) + 121
