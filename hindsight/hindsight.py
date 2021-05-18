@@ -12,6 +12,10 @@
 # -----------
 
 """
+
+Reference:
+- https://askubuntu.com/questions/631392/saving-and-restoring-window-positions
+
 """
 
 # ------------
@@ -26,11 +30,13 @@ from pathlib import Path
 # 3rd Party - From pip
 
 import click
+from appdirs import AppDirs
 
 # ------------
 # Custom Modules
 
 from .save import save
+from .restore import restore
 
 # -------------
 # Logging
@@ -60,6 +66,28 @@ logger.addHandler(console)
 log = logging.getLogger(__name__)
 # -------------
 
+__appname__ = "hindsight"
+__company__ = "bluebill.net"
+
+def common_paths():
+    """
+    The paths that the application will commonly use for storing settings
+    and caching things.
+
+    """
+
+    dirs = AppDirs()
+
+    paths = {
+        "config": Path(dirs.user_config_dir).joinpath(__company__).joinpath(__appname__),
+    }
+
+    paths['config'].mkdir(parents=True, exist_ok=True)
+
+    paths["locations"] = paths["config"].joinpath("locations.json")
+
+    return paths
+
 @click.group()
 @click.version_option()
 @click.pass_context
@@ -80,9 +108,10 @@ def main(*args, **kwargs):
     ctx = args[0]
     ctx.ensure_object(dict)
 
+    ctx.obj['paths'] = common_paths()
 
 # -----------
 # Add the child menu options
 
 main.add_command(save)
-# main.add_command(pdf)
+main.add_command(restore)
