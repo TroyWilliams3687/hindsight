@@ -81,8 +81,7 @@ You can delete that file anytime you like. It will be re-created automatically. 
 
 ## Startup Script
 
-You can use the startup script, [monitor_lock.sh](monitor_lock.sh), to launch a dbus monitor to watch for the lock/unlock events and automatically apply the scripts. Most likely you will need
-
+You can use the startup script, [monitor_lock.sh](monitor_lock.sh), to launch a dbus monitor to watch for the lock/unlock events and automatically apply the scripts. If the startup script doesn't quite work, you can always bind to shortcut keys and save the configuration that way.
 
 ## Customizations
 
@@ -91,7 +90,7 @@ You can use the startup script, [monitor_lock.sh](monitor_lock.sh), to launch a 
 Most likely you will need to modify the path to the repository so that it can save/restore the window positions. You will need to change the path for the following line:
 
 ```
-EXE="~/repositories/projects/hindsight/.venv/bin/hindsight"
+EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 ```
 
 ### hindsight restore
