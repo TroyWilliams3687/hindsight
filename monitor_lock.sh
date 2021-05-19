@@ -22,7 +22,8 @@
 # https://superuser.com/questions/205334/how-do-you-get-ubuntu-to-automatically-run-a-program-every-time-the-screen-is-un
 # https://superuser.com/a/411124
 
-EXE="~/repositories/projects/hindsight/.venv/bin/hindsight"
+# Change the path to the full, absolute path
+EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 
 dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver',member='ActiveChanged'" | while read line ; do
     if [ x"$(echo "$line" | grep 'boolean true')" != x ] ; then
