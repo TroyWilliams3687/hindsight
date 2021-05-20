@@ -99,6 +99,16 @@ The restore script was designed to handle two monitors at specific resolutions. 
 
 >NOTE: I couldn't figure out a better way to do this with the wmctrl tool. If you run `wmtrcl -lG` and observer the x,y,w,h it reports and use those exact same values in `wmctrl -ir xxxxxx, -e 0,x,y,w,h` the window will move quite a bit (at least it did on my system). It moved a lot more than the window decorations would indicate. And some windows moved more than others, there didn't appear to be a pattern. In the future if I can get it sorted I'll post revisions.
 
+### `.bashrc` alias
+
+I find it useful to have bash aliases setup to initiate that save/restore. In some cases, I have found that the monitor didn't wake up fast enough and the windows were not correctly positioned. In those cases, simpling executing `hsr` did the trick.
+
+```
+alias hsr="~/repositories/projects/hindsight/.venv/bin/hindsight restore"
+alias hss="~/repositories/projects/hindsight/.venv/bin/hindsight save"
+
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
