@@ -11,8 +11,9 @@
 # ----------
 # Variables
 
-# The location to the python installation to use
-PYPATH = ~/opt/python_3.9.1/bin
+# The location to the python installation to use - we have an environment
+# variable set with the correct path
+PYPATH = ${python}
 
 # The name of the virtual environment to use
 VENV = .venv
