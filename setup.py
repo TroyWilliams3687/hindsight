@@ -40,9 +40,10 @@ setup(
         "click",
         "appdirs",
     ],
-    entry_points="""
-        [console_scripts]
-        hindsight=hindsight.hindsight:main
-    """,
+    entry_points={
+        'console_scripts': [
+            'hindsight=hindsight.hindsight:main',
+        ],
+    },
     python_requires=">=3.9",
 )
