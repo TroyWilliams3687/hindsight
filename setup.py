@@ -16,6 +16,10 @@ This module contains information for properly setting up a package that can
 represent md_docs.
 """
 
+# https://hynek.me/articles/testing-packaging/
+# https://docs.python.org/3/distutils/setupscript.html
+
+
 from setuptools import setup, find_packages
 
 setup(
@@ -24,7 +28,8 @@ setup(
     author="Troy Williams",
     author_email="troy.williams@bluebill.net",
     description="Remember the position of your open windows and restore them at a later point.",
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
