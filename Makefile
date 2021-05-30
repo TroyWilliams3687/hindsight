@@ -65,12 +65,14 @@ $(VENV): requirements.txt
 # ------
 # pypi
 
-.PHONY: pypi
-pypi: $(VENV)
-	@echo "Generating Python Package for PYPI..."
+dist:$(VENV)
 	@$(BIN)/python setup.py sdist bdist_wheel
 
-# -----w
+.PHONY: pypi
+pypi: dist
+	@echo "Generating Python Package for PYPI..."
+
+# -----
 # Black
 
 .PHONY: black
@@ -78,16 +80,23 @@ black: $(VENV)
 	@echo "Applying Black Code Formatting..."
 	@$(BIN)/black src/
 
+# -----
+# Clean
+
+.PHONY: clean
+clean:
+	@echo "Cleaning pypi dist folder..."
+	@rm -rf dist
+
 # ------
 # Remove
 
 # Remove the Virtual Environment and clean the cached files
 
 .PHONY: remove
-remove:
+remove: clean
 	@echo "Removing ${VENV} and Cached Files..."
 	@find . -type d -name ${VENV} -exec rm -r {} +
-	@find . -type d -name dist -exec rm -r {} +
 	@find . -type d -name '*.egg-info' -exec rm -r {} +
 	@find . -type d -name __pycache__ -exec rm -r {} +
 	@find . -type f -name *.pyc -delete
