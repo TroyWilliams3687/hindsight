@@ -21,17 +21,26 @@ represent md_docs.
 
 
 from setuptools import setup, find_packages
+from pathlib import Path
+
+README = Path(__file__).parent.joinpath("README.md").read_text()
 
 setup(
-    name="hindsight",
-    version="0.1",
+    name="hindsight-ubuntu",
+    version="0.0.1",
+    description="Remember the position, size and virtual desktop of your open windows and restore them at a later point.",
     author="Troy Williams",
     author_email="troy.williams@bluebill.net",
-    description="Remember the position of your open windows and restore them at a later point.",
+    url="https://github.com/TroyWilliams3687/hindsight",
+    long_description=README,
+    long_description_content_type="text/markdown",
+    license='MIT',
     classifiers=[
-        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Operating System :: POSIX :: Linux",
+        "Topic :: Desktop Environment :: Gnome",
     ],
     python_requires=">=3.9",
     packages=find_packages(where="src"),

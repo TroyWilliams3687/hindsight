@@ -12,10 +12,12 @@ The idea is to launch a script ([monitor_lock.sh](monitor_lock.sh)) when you log
 
 >NOTE: It isn't a 100% accurate. For most windows it should work fine, but you may have to tweak some windows to work better. You will most likely need to configure things for your system. If you have more than two monitors, you will need to make some edits to the [restore.py](./hindsight/restore.py) script.
 
+>NOTE: Sometimes the script may not restore to the correct virtual desktop (monitor loaded slower than usual or I was too quick entering a password). You'll have to manually invoke the call to `hindsight restore`.
+
 ## Versions and Requirements
 
-- Ubuntu 20.04
-- Python 3.9
+- Ubuntu v20.04
+- Python v3.9
 - wmctrl - `sudo apt install wmctrl`
 
 You will need Python installed (the latest will probably work fine, but you need at a minimum v3.9). You will also need a tool called [wmctrl](https://www.freedesktop.org/wiki/Software/wmctrl/).
@@ -23,7 +25,7 @@ You will need Python installed (the latest will probably work fine, but you need
 
 ## Installation
 
-Install wmctrl:
+Install [wmctrl](https://www.freedesktop.org/wiki/Software/wmctrl/):
 
 ```
 $ sudo apt install wmctrl
@@ -77,7 +79,7 @@ The window settings are stored here in a JSON file:
 ~/.config/bluebill.net/hindsight/locations.json
 ```
 
-You can delete that file anytime you like. It will be re-created automatically. It is automatically overwritten each time settings are saved.
+You can delete that file anytime you like, it will be re-created automatically. It is automatically overwritten each time settings are saved.
 
 ## Startup Script
 
@@ -93,7 +95,7 @@ Most likely you will need to modify the path to the repository so that it can sa
 EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 ```
 
-### hindsight restore
+### Hindsight Restore
 
 The restore script was designed to handle two monitors at specific resolutions. Your mileage may vary. Most likely you will need to modify sections in the restore script, [restore.py](./hindsight/restore.py). The lines you are interested in are from 66 to 114. 
 
@@ -106,8 +108,10 @@ I find it useful to have bash aliases setup to initiate that save/restore. In so
 ```
 alias hsr="~/repositories/projects/hindsight/.venv/bin/hindsight restore"
 alias hss="~/repositories/projects/hindsight/.venv/bin/hindsight save"
-
 ```
+
+>NOTE: Set the path the aliases are refering to based on the location you have created the virtual environment.
+
 
 ## License
 
