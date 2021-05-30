@@ -27,7 +27,7 @@ README = Path(__file__).parent.joinpath("README.md").read_text()
 
 setup(
     name="hindsight-ubuntu",
-    version="0.0.2",
+    version="0.0.3",
     description="Remember the position, size and virtual desktop of your open windows and restore them at a later point.",
     author="Troy Williams",
     author_email="troy.williams@bluebill.net",
@@ -49,6 +49,7 @@ setup(
     install_requires=[
         "click",
         "appdirs",
+        "pyyaml",
     ],
     entry_points={
         'console_scripts': [

@@ -4,6 +4,7 @@ black
 
 click
 appdirs
+pyyaml
 
 # release to pypi
 twine

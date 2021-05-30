@@ -59,6 +59,64 @@ Activate the virtual environment:
 $ . .venv/bin/activate
 ```
 
+## Configuration File
+
+A configuration file is located in the [sample](sample/settings.yaml) folder. It
+can be placed in `~/.config/bluebill.net/hindsight/settings.yaml`. This will
+will be used for fine tuning the window placement. It is structured as below:
+
+```yaml
+
+# Hindsight
+# ---------
+#
+# https://github.com/TroyWilliams3687/hindsight
+
+# The configuration file allows you to customize Hindsight for your system. It
+# allows you to set the scale and specific positions for specific windows that
+# don't seem to follow the rules.
+
+# Location - ~/.config/bluebill.net/hindsight/settings.yaml
+
+# ---------
+# Scale
+
+# Adjust the scale ratio if you have monitors at different resolution. Find the
+# min and max values for the width and height and divide them to get a proper
+# aspect ratio. For example, I have two monitors with the following resolutions:
+
+#         w  x h
+# m1 = [1920, 1080]
+# m2 = [3840, 2160]
+
+# scale_x = m1[0] / m2[0] = 0.5
+# scale_y = m1[1] / m2[1] = 0.5
+
+scale_x: 0.5 # Default 1.0
+scale_y: 0.5 # Default 1.0
+
+# ---------
+# Window Fine Tuning
+
+# Some windows will simply not play nice with the system. You can specify part
+# of the text that is in the window title (that is how the system knows which
+# window to use). You also can specify the x and y position of the upper left
+# corner of the window. If one coordinate does not require an adjustment, set it
+# to 0.
+
+# NOTE: Default is empty
+
+# NOTE: The text is case-sensitive
+
+window_adjustments:
+  - title_text: "Firefox"
+    x: -7
+    y: -8
+  - title_text: "Discord"
+    x: -10
+    y: 0
+
+```
 
 ## Usage
 

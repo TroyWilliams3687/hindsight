@@ -30,6 +30,7 @@ from pathlib import Path
 # 3rd Party - From pip
 
 import click
+import yaml
 from appdirs import AppDirs
 
 # ------------
@@ -88,6 +89,13 @@ def common_paths():
     paths["config"].mkdir(parents=True, exist_ok=True)
 
     paths["locations"] = paths["config"].joinpath("locations.json")
+
+    settings = paths["config"].joinpath("settings.yaml")
+
+    paths["settings"] = {'scale_x':1.0, 'scale_y':1.0}
+
+    if settings.exists():
+        paths["settings"] = yaml.load(settings.read_text(), Loader=yaml.FullLoader)
 
     return paths
 
