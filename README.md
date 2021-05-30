@@ -6,7 +6,7 @@ A tool that can record the position and size of windows on Ubuntu and restore th
 
 The problem, in Ubuntu 20.04 (at least), Gnome has trouble handling the window positions when you have multiple monitors each setup with different resolutions. It is particularly pronounced when locking the system. If one monitor wakes up faster than the other monitor(s) the system assumes it is gone and proceeds to place all the windows onto one monitor or in a random mess. For example, you could have one monitor set at 1920 x 1080 and another at 3840 x 2160 (4k). I have found this can be quite annoying when you have dozens of windows open across multiple virtual desktops!
 
-The idea is to launch a script ([monitor_lock.sh](monitor_lock.sh)) when you login that will monitor the (using dbus-monitor) the system for the lock event. When the lock event is detected, the script calls `hindsight` and records the positions and sizes of the windows. When the script detects the unlock event, it calls `hindsight` and restores the window sizes and positions.
+The idea is to launch a script ([monitor_lock.sh](monitor_lock.sh)) when you login that will monitor (using dbus-monitor) the system for a lock event. When the lock event is detected, the script calls `hindsight` and records the positions and sizes of the windows. When the script detects the unlock event, it calls `hindsight` and restores the window sizes and positions.
 
 >NOTE: If you don't want to run the script automatically, you can call it manually before the lock event and then restore manually. You could assign the call to a shortcut key pair.
 
