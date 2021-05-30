@@ -102,6 +102,8 @@ Most likely you will need to modify the path to the repository so that it can sa
 EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 ```
 
+>NOTE: You add the script to the startup applications so that it is launched when you first log in to the system and continues to run till you log out.
+
 ### Hindsight Restore
 
 The restore script was designed to handle two monitors at specific resolutions. Your mileage may vary. Most likely you will need to modify sections in the restore script, [restore.py](./hindsight/restore.py). The lines you are interested in are from 66 to 114. 

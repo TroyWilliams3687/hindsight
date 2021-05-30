@@ -22,6 +22,8 @@
 # https://superuser.com/questions/205334/how-do-you-get-ubuntu-to-automatically-run-a-program-every-time-the-screen-is-un
 # https://superuser.com/a/411124
 
+# The script needs to be added to the startup applications.
+
 # Change the path to the full, absolute path
 EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 
