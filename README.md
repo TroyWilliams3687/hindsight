@@ -164,7 +164,9 @@ EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 
 ### Hindsight Restore
 
-The restore script was designed to handle two monitors at specific resolutions. Your mileage may vary. Most likely you will need to modify sections in the restore script, [restore.py](./hindsight/restore.py). The lines you are interested in are from 66 to 114. 
+The restore script was designed to handle two monitors at specific resolutions. Your mileage may vary. Most likely you will need to modify sections in the restore script, [restore.py](./hindsight/restore.py). The lines you are interested in are from 66 to 114.
+
+>UPDATE: The above statement is no longer valid. There is a configuration file that you can use to fine tune the restore positions for specific classes of windows.
 
 >NOTE: I couldn't figure out a better way to do this with the wmctrl tool. If you run `wmtrcl -lG` and observer the x,y,w,h it reports and use those exact same values in `wmctrl -ir xxxxxx, -e 0,x,y,w,h` the window will move quite a bit (at least it did on my system). It moved a lot more than the window decorations would indicate. And some windows moved more than others, there didn't appear to be a pattern. In the future if I can get it sorted I'll post revisions.
 
