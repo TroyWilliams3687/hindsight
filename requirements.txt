@@ -4,3 +4,6 @@ black
 
 click
 appdirs
+
+# release to pypi
+twine
