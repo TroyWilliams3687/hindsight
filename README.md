@@ -31,12 +31,18 @@ Install [wmctrl](https://www.freedesktop.org/wiki/Software/wmctrl/):
 $ sudo apt install wmctrl
 ```
 
-Create a folder to store the repository and clone the hindsight repo:
+You can simply install the package from [pypi](https://pypi.org/project/hindsight-ubuntu/):
+
+```bash
+$ pip install hindsight-ubuntu
+```
+
+Or you can install it from the git [repo](https://github.com/TroyWilliams3687/hindsight):
 
 ```
-$ mkdir ~/repositories/third_party
+$ mkdir -p ~/repositories/hindsight
 
-$ cd ~/repositories/third_party
+$ cd ~/repositories/hindsight
 
 $ git clone https://github.com/TroyWilliams3687/hindsight.git
 ```
@@ -52,6 +58,7 @@ Activate the virtual environment:
 ```
 $ . .venv/bin/activate
 ```
+
 
 ## Usage
 
@@ -85,7 +92,7 @@ You can delete that file anytime you like, it will be re-created automatically. 
 
 You can use the startup script, [monitor_lock.sh](monitor_lock.sh), to launch a dbus monitor to watch for the lock/unlock events and automatically apply the scripts. If the startup script doesn't quite work, you can always bind to shortcut keys and save the configuration that way.
 
-## Customizations
+## Customization
 
 ### monitor_lock.sh
 
@@ -103,14 +110,14 @@ The restore script was designed to handle two monitors at specific resolutions. 
 
 ### `.bashrc` alias
 
-I find it useful to have bash aliases setup to initiate that save/restore. In some cases, I have found that the monitor didn't wake up fast enough and the windows were not correctly positioned. In those cases, simpling executing `hsr` did the trick.
+I find it useful to have bash aliases setup to initiate that save/restore. In some cases, I have found that the monitor didn't wake up fast enough and the windows were not correctly positioned. In those cases, simply executing `hsr` did the trick.
 
 ```
 alias hsr="~/repositories/projects/hindsight/.venv/bin/hindsight restore"
 alias hss="~/repositories/projects/hindsight/.venv/bin/hindsight save"
 ```
 
->NOTE: Set the path the aliases are refering to based on the location you have created the virtual environment.
+>NOTE: Set the path the aliases are referring to based on the location you have created the virtual environment.
 
 
 ## License
