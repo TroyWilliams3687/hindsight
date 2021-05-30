@@ -9,7 +9,9 @@ get = lambda cmd: subprocess.check_output(cmd).decode("utf-8")
 
 # get the data on all currently connected screens, their x-resolution
 screendata = [l.split() for l in get(["xrandr"]).splitlines() if " connected" in l]
-screendata = sum([[(w[0], s.split("+")[-2]) for s in w if s.count("+") == 2] for w in screendata], [])
+screendata = sum(
+    [[(w[0], s.split("+")[-2]) for s in w if s.count("+") == 2] for w in screendata], []
+)
 
 print(screendata)
 

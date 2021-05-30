@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # -----------
 # SPDX-License-Identifier: MIT
@@ -59,9 +59,7 @@ def write_json(path, items):
     """
 
     with path.open("w", encoding="utf-8") as fo:
-        print(json.dumps(items,
-                         sort_keys=False,
-                         indent=2), file=fo)
+        print(json.dumps(items, sort_keys=False, indent=2), file=fo)
 
 
 def read_json(path):
@@ -86,6 +84,7 @@ def read_json(path):
 
     with path.open("r", encoding="utf-8") as f:
         return json.loads(f.read())
+
 
 def run_cmd(cmd, **kwargs):
     """

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # -----------
 # SPDX-License-Identifier: MIT
@@ -54,7 +54,7 @@ from .restore import restore
 
 # get the root logger
 logger = logging.getLogger()
-logger.setLevel(logging.INFO) # change logging level here...
+logger.setLevel(logging.INFO)  # change logging level here...
 
 # make a console logger
 console = logging.StreamHandler()
@@ -69,6 +69,7 @@ log = logging.getLogger(__name__)
 __appname__ = "hindsight"
 __company__ = "bluebill.net"
 
+
 def common_paths():
     """
     The paths that the application will commonly use for storing settings
@@ -79,14 +80,17 @@ def common_paths():
     dirs = AppDirs()
 
     paths = {
-        "config": Path(dirs.user_config_dir).joinpath(__company__).joinpath(__appname__),
+        "config": Path(dirs.user_config_dir)
+        .joinpath(__company__)
+        .joinpath(__appname__),
     }
 
-    paths['config'].mkdir(parents=True, exist_ok=True)
+    paths["config"].mkdir(parents=True, exist_ok=True)
 
     paths["locations"] = paths["config"].joinpath("locations.json")
 
     return paths
+
 
 @click.group()
 @click.version_option()
@@ -108,7 +112,8 @@ def main(*args, **kwargs):
     ctx = args[0]
     ctx.ensure_object(dict)
 
-    ctx.obj['paths'] = common_paths()
+    ctx.obj["paths"] = common_paths()
+
 
 # -----------
 # Add the child menu options

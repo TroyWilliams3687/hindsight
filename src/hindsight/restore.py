@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # -----------
 # SPDX-License-Identifier: MIT
@@ -41,6 +41,7 @@ from .common import run_cmd, read_json
 log = logging.getLogger(__name__)
 # -------------
 
+
 def move_window(wid, x, y, w, h, title, verbose=False):
     """
     Move the window specified by is (wid) to the new x, y offset and
@@ -77,14 +78,19 @@ def move_window(wid, x, y, w, h, title, verbose=False):
         log.info(f'wmctrl -ir {wid} -e 0,{x},{y},{w},{h} "  -> {title}"')
 
     # restore the correct size and position on the desktop
-    results = run_cmd([
-        'wmctrl',
-        '-ir', wid,
-        '-e', f'0,{x},{y},{w},{h}',
-    ])
+    results = run_cmd(
+        [
+            "wmctrl",
+            "-ir",
+            wid,
+            "-e",
+            f"0,{x},{y},{w},{h}",
+        ]
+    )
 
     for r in results:
         log.info(r)
+
 
 def set_desktop(wid, deskid, title, verbose=False):
     """
@@ -107,14 +113,19 @@ def set_desktop(wid, deskid, title, verbose=False):
     if verbose:
         log.info(f'wmctrl -ir {wid} -t {deskid} " -> {title}"')
 
-    results = run_cmd([
-        'wmctrl',
-        '-ir', wid,
-        '-t', deskid,
-    ])
+    results = run_cmd(
+        [
+            "wmctrl",
+            "-ir",
+            wid,
+            "-t",
+            deskid,
+        ]
+    )
 
     for r in results:
         log.info(r)
+
 
 def position_adjustments(x, y, scale_x, scale_y, title):
     """
@@ -141,21 +152,21 @@ def position_adjustments(x, y, scale_x, scale_y, title):
 
     """
 
-    if 'Firefox' in title:
+    if "Firefox" in title:
 
         # apply a kludge to get it to restore properly...
 
         x -= 7
         y -= 8
 
-    elif 'Sublime Text' in title:
+    elif "Sublime Text" in title:
 
         # apply a kludge to get it to restore properly...
 
         x -= 10
         y -= 82
 
-    elif 'Discord' in title:
+    elif "Discord" in title:
 
         # apply a kludge to get it to restore properly...
 
@@ -164,15 +175,14 @@ def position_adjustments(x, y, scale_x, scale_y, title):
 
     else:
 
-        x = math.floor(x*scale_x)
-        y = math.floor(y*scale_y)
+        x = math.floor(x * scale_x)
+        y = math.floor(y * scale_y)
 
     return x, y
 
-@click.command('restore')
-@click.option('--verbose',
-              is_flag=True,
-              help='Display more verbose output.')
+
+@click.command("restore")
+@click.option("--verbose", is_flag=True, help="Display more verbose output.")
 @click.pass_context
 def restore(*args, **kwargs):
     """
@@ -182,12 +192,12 @@ def restore(*args, **kwargs):
     """
 
     # Extract the configuration file from the click context
-    paths = args[0].obj['paths']
+    paths = args[0].obj["paths"]
 
-    items = read_json(paths['locations'])
+    items = read_json(paths["locations"])
 
     if items is None:
-        log.info('Nothing to restore!')
+        log.info("Nothing to restore!")
 
         return
 
@@ -216,28 +226,25 @@ def restore(*args, **kwargs):
     m1 = [1920, 1080]
     m2 = [3840, 2160]
 
-    scale_x = m1[0]/m2[0]
-    scale_y = m1[1]/m2[1]
+    scale_x = m1[0] / m2[0]
+    scale_y = m1[1] / m2[1]
 
     for p in items:
         wid, deskid, x, y, w, h, *title = p
 
         title = " ".join(title)
 
-        x,y = position_adjustments(int(x), int(y), scale_x, scale_y, title)
+        x, y = position_adjustments(int(x), int(y), scale_x, scale_y, title)
 
         # --------------
         # 1. move to the correct position on the active desktop
 
-        move_window(wid, x, y, w, h, title, verbose=kwargs['verbose'])
-
+        move_window(wid, x, y, w, h, title, verbose=kwargs["verbose"])
 
         # --------------
         # 2. move to the correct desktop once it is in the correct position
 
-        set_desktop(wid, deskid, title, verbose=kwargs['verbose'])
-
-
+        set_desktop(wid, deskid, title, verbose=kwargs["verbose"])
 
     # We are going to use `$ wmctrl -ir wid -e 0,x,y,w,h` to restore the window position
 
@@ -245,7 +252,6 @@ def restore(*args, **kwargs):
     # -i
     # Interpret  window  arguments  (<WIN>) as a numeric value rather than a string name for the window. If the nu‐
     # meric value starts with the prefix '0x' it is assumed to be a hexadecimal number.
-
 
     # -r <WIN>
     #     Specify a target window for an action.
@@ -262,4 +268,3 @@ def restore(*args, **kwargs):
     # of the window, and w,h is the width and height of the window, with the exception that the value of -1 in  any
     # position is interpreted to mean that the current geometry value should not be modified.
     # ------------
-
