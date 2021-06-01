@@ -66,10 +66,10 @@ $(VENV): requirements.txt
 # pypi
 
 dist:$(VENV)
-	@$(BIN)/python setup.py sdist bdist_wheel
+	@$(BIN)/python -m build
 
-.PHONY: pypi
-pypi: dist
+.PHONY: build
+build: dist
 	@echo "Generating Python Package for PYPI..."
 
 # -----

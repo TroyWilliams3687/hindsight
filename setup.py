@@ -49,7 +49,7 @@ setup(
     install_requires=[
         "click",
         "appdirs",
-        "pyyaml",
+        "toml",
     ],
     entry_points={
         'console_scripts': [

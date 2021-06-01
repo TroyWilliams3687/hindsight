@@ -4,7 +4,11 @@ black
 
 click
 appdirs
-pyyaml
+toml
+
+# Build to make pyproject.toml work
+# https://pypa-build.readthedocs.io/en/latest/index.html
+build
 
 # release to pypi
 twine

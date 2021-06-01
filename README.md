@@ -61,11 +61,11 @@ $ . .venv/bin/activate
 
 ## Configuration File
 
-A configuration file is located in the [sample](sample/settings.yaml) folder. It
-can be placed in `~/.config/bluebill.net/hindsight/settings.yaml`. This will
+A configuration file is located in the [sample](sample/settings.toml) folder. It
+can be placed in `~/.config/bluebill.net/hindsight/settings.toml`. This will
 will be used for fine tuning the window placement. It is structured as below:
 
-```yaml
+```toml
 
 # Hindsight
 # ---------
@@ -76,7 +76,7 @@ will be used for fine tuning the window placement. It is structured as below:
 # allows you to set the scale and specific positions for specific windows that
 # don't seem to follow the rules.
 
-# Location - ~/.config/bluebill.net/hindsight/settings.yaml
+# Location - ~/.config/bluebill.net/hindsight/settings.toml
 
 # ---------
 # Scale
@@ -92,8 +92,8 @@ will be used for fine tuning the window placement. It is structured as below:
 # scale_x = m1[0] / m2[0] = 0.5
 # scale_y = m1[1] / m2[1] = 0.5
 
-scale_x: 0.5 # Default 1.0
-scale_y: 0.5 # Default 1.0
+scale_x = 0.5 # Default 1.0
+scale_y = 0.5 # Default 1.0
 
 # ---------
 # Window Fine Tuning
@@ -108,13 +108,17 @@ scale_y: 0.5 # Default 1.0
 
 # NOTE: The text is case-sensitive
 
-window_adjustments:
-  - title_text: "Firefox"
-    x: -7
-    y: -8
-  - title_text: "Discord"
-    x: -10
-    y: 0
+# https://toml.io/en/v1.0.0#array-of-tables
+
+[[window_adjustments]]
+title_text = "Firefox"
+x = -7
+y = -8
+
+[[window_adjustments]]
+title_text = "Discord"
+x = -10
+y = 0
 
 ```
 

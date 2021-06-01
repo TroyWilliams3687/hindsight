@@ -30,7 +30,7 @@ from pathlib import Path
 # 3rd Party - From pip
 
 import click
-import yaml
+import toml
 from appdirs import AppDirs
 
 # ------------
@@ -90,12 +90,12 @@ def common_paths():
 
     paths["locations"] = paths["config"].joinpath("locations.json")
 
-    settings = paths["config"].joinpath("settings.yaml")
+    settings = paths["config"].joinpath("settings.toml")
 
     paths["settings"] = {'scale_x':1.0, 'scale_y':1.0}
 
     if settings.exists():
-        paths["settings"] = yaml.load(settings.read_text(), Loader=yaml.FullLoader)
+        paths["settings"] = toml.loads(settings.read_text())
 
     return paths
 
@@ -106,13 +106,7 @@ def common_paths():
 def main(*args, **kwargs):
     """
 
-    # Parameters
-
-    build_cfg:str
-        - The path to the YAML configuration file to use to drive the process.
-
-    # Usage
-
+    Save and restore the window positions and sizes.
 
     """
 
