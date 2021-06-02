@@ -13,7 +13,7 @@
 
 """
 This module contains information for properly setting up a package that can
-represent md_docs.
+represent hindsight.
 """
 
 # https://hynek.me/articles/testing-packaging/
