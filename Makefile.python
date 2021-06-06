@@ -70,7 +70,7 @@ REQUIREMENTS_TXT?=$(wildcard requirements.txt)
 
 # The install_marker indicates that the .venv was created and initialized by the
 # makefile - no need to install things to it again
-INSTALL_MARKER=.initialized-with-Makefile.venv
+MARKER=.initialized-with-Makefile.venv
 
 # Attach the venv path so it is searched first, for binaries - If we don't do
 # this, then PANDOC won't find any Python based filters
