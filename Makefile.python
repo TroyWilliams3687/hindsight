@@ -84,7 +84,7 @@ $(VENV):
 	$(PY) -m venv $@
 
 	@echo "Upgrading pip, setuptools and wheel..."
-	$(BIN)/python -m pip install --upgrade pip setuptools wheel
+	@$(BIN)/python -m pip install --upgrade pip setuptools wheel
 
 	@# install the pretty errors module and set it up to format errors globally
 	@# for the virtual environment

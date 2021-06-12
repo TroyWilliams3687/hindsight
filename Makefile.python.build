@@ -21,7 +21,7 @@
 #-----
 # make test
 
-## make text - Perform the unit tests.
+## make test - Perform the unit tests.
 .Phone: test
 test: $(VENV)
 	@echo "Running Tests..."
