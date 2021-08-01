@@ -27,7 +27,7 @@ You will need Python installed (the latest will probably work fine, but you need
 
 Install [wmctrl](https://www.freedesktop.org/wiki/Software/wmctrl/):
 
-```
+```bash
 $ sudo apt install wmctrl
 ```
 
@@ -39,7 +39,7 @@ $ pip install hindsight-ubuntu
 
 Or you can install it from the git [repo](https://github.com/TroyWilliams3687/hindsight):
 
-```
+```bash
 $ mkdir -p ~/repositories/hindsight
 
 $ cd ~/repositories/hindsight
@@ -49,13 +49,19 @@ $ git clone https://github.com/TroyWilliams3687/hindsight.git
 
 Create the virtual environment:
 
-```
+```bash
 $ make
 ```
 
 Activate the virtual environment:
 
+```bash
+$ make shell
 ```
+
+Or
+
+```bash
 $ . .venv/bin/activate
 ```
 
@@ -126,13 +132,13 @@ y = 0
 
 To record and save the window positions and sizes directly (make sure the virtual environment is active):
 
-```
+```bash
 $ hindsight save
 ```
 
 To restore the window sizes and positions:
 
-```
+```bash
 $ hindsight restore
 ```
 
@@ -144,7 +150,7 @@ $ hindsight restore
 
 The window settings are stored here in a JSON file:
 
-```
+```bash
 ~/.config/bluebill.net/hindsight/locations.json
 ```
 
@@ -160,7 +166,7 @@ You can use the startup script, [monitor_lock.sh](monitor_lock.sh), to launch a 
 
 Most likely you will need to modify the path to the repository so that it can save/restore the window positions. You will need to change the path for the following line:
 
-```
+```bash
 EXE=~/repositories/projects/hindsight/.venv/bin/hindsight
 ```
 
@@ -178,7 +184,7 @@ The restore script was designed to handle two monitors at specific resolutions. 
 
 I find it useful to have bash aliases setup to initiate that save/restore. In some cases, I have found that the monitor didn't wake up fast enough and the windows were not correctly positioned. In those cases, simply executing `hsr` did the trick.
 
-```
+```bash
 alias hsr="~/repositories/projects/hindsight/.venv/bin/hindsight restore"
 alias hss="~/repositories/projects/hindsight/.venv/bin/hindsight save"
 ```
