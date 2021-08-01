@@ -126,60 +126,6 @@ def set_desktop(wid, deskid, title, verbose=False):
     for r in results:
         log.info(r)
 
-
-# def position_adjustments(x, y, scale_x, scale_y, title):
-#     """
-
-#     Given the window x,y corner offset and the window title,
-#     determine if the coordinates need to be adjusted.
-
-#     # Parameters
-
-#     x:int
-#         - x-coordinate of the upper left corner
-
-#     y:int
-#         - y-coordinate of the upper left corner
-
-#     scale_x:int
-#         - The scale factor to apply to the x coordinates in some cases
-
-#     scale_y:int
-#         - The scale factor to apply to the y coordinates in some cases
-
-#     title:str
-#         - The title information of the window
-
-#     """
-
-#     if "Firefox" in title:
-
-#         # apply a kludge to get it to restore properly...
-
-#         x -= 7
-#         y -= 8
-
-#     elif "Sublime Text" in title:
-
-#         # apply a kludge to get it to restore properly...
-
-#         x -= 10
-#         y -= 82
-
-#     elif "Discord" in title:
-
-#         # apply a kludge to get it to restore properly...
-
-#         x -= 10
-#         # y = math.floor(y*scale_y) + 121
-
-#     else:
-
-#         x = math.floor(x * scale_x)
-#         y = math.floor(y * scale_y)
-
-#     return x, y
-
 def position_adjustments(x, y, fine_tuning, title):
     """
 
