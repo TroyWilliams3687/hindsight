@@ -126,6 +126,7 @@ def set_desktop(wid, deskid, title, verbose=False):
     for r in results:
         log.info(r)
 
+
 def position_adjustments(x, y, fine_tuning, title):
     """
 
@@ -148,21 +149,20 @@ def position_adjustments(x, y, fine_tuning, title):
 
     """
 
+    if "window_adjustments" in fine_tuning:
 
-    if 'window_adjustments' in fine_tuning:
+        for adjustment in fine_tuning["window_adjustments"]:
 
-        for adjustment in fine_tuning['window_adjustments']:
-
-            if adjustment['title_text'] in title:
+            if adjustment["title_text"] in title:
 
                 return (
-                    x + adjustment['x'],
-                    y + adjustment['y'],
+                    x + adjustment["x"],
+                    y + adjustment["y"],
                 )
 
     return (
-        math.floor(x * fine_tuning['scale_x']),
-        math.floor(y * fine_tuning['scale_y']),
+        math.floor(x * fine_tuning["scale_x"]),
+        math.floor(y * fine_tuning["scale_y"]),
     )
 
 
@@ -178,7 +178,7 @@ def restore(*args, **kwargs):
 
     # Extract the configuration file from the click context
     paths = args[0].obj["paths"]
-    positions_fine_tuning = paths['settings']
+    positions_fine_tuning = paths["settings"]
 
     items = read_json(paths["locations"])
 

@@ -92,7 +92,7 @@ def common_paths():
 
     settings = paths["config"].joinpath("settings.toml")
 
-    paths["settings"] = {'scale_x':1.0, 'scale_y':1.0}
+    paths["settings"] = {"scale_x": 1.0, "scale_y": 1.0}
 
     if settings.exists():
         paths["settings"] = toml.loads(settings.read_text())
