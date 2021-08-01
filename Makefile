@@ -19,19 +19,20 @@
 
 
 # -----------
-# Variables
+# Makefile.env
 
-# The location to the python installation to use - we have an environment
-# variable set with the correct path. The variable is set in `~/.bashrc` and
-# will point to something like python=`~/opt/python_3.9.5/bin`
+# Makefile.env - should not be included with your repo. There is a
+# Makefile.env.sample that exists with the variables that these makefiles
+# require. Please make of copy of that, rename it and update the variables. Also
+# add it to the .gitignore file.
 
-PYPATH?=$(python)
+include Makefile.env
 
-# define the binary to use
-PY?=$(PYPATH)/python3.9
+# -----------
+# Optional Includes
 
 include Makefile.python
-include Makefile.python.build  # Optional
+include Makefile.python.build
 
 
 # -----

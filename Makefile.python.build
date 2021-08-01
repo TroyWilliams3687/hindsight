@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2021 Troy Williams
 
-# uuid       = f2af08ba-c6f5-11eb-aab5-07c56d07b1c9
+# uuid       =
 # author     = Troy Williams
 # email      = troy.williams@bluebill.net
-# date       = 2021-06-06
+# date       =
 # -----------
 
 # This Makefile should be included in the primary Makefile when dealing with
@@ -17,6 +17,20 @@
 # $ pip install flake8
 # $ pip install build
 
+# include Makefile.python.build  # Optional
+
+
+#----
+# Assumed Variables
+
+# It is assumed that these variables are already defined, most likely in the `Makefile.python`
+
+# The name of the virtual environment to use
+# VENV=.venv
+
+# The path to the bin folder in the virtual environment. We define this
+# so we can use the correct binaries
+# BIN?=$(VENV)/bin
 
 #-----
 # make test
