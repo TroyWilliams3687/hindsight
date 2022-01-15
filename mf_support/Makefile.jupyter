@@ -1,0 +1,33 @@
+# -----------
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2022 Troy Williams
+
+# uuid       = 303a7c56-238e-11ec-811e-5d4d4c500ca4
+# author     = Troy Williams
+# email      = troy.williams@bluebill.net
+# date       = 2021-10-02
+# -----------
+
+# -----------
+# Information
+
+# This makefile provides useful commands for launch Jupyter notebooks or Jupyter
+# labs. It assumes that either is installed properly in the virtual environment.
+
+
+#-----
+# make launch
+
+## make launch - Launch Jupyter Notebook Interface.
+.PHONY: launch
+launch: $(VENV)
+	@$(BIN)/jupyter notebook --notebook-dir="."
+
+
+#-----
+# make lab
+
+## make lab - Launch Jupyter Lab Interface.
+.PHONY: lab
+lab: $(VENV)
+	@$(BIN)/jupyter lab --notebook-dir="."

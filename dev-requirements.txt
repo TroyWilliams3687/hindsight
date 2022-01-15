@@ -1,0 +1,59 @@
+# ------------
+# Dev Dependencies
+
+# These are the dependencies that are typically only required in the development
+# environment like formatters or linters. They are not typically required in
+# production.
+
+
+# ----------
+# Quality Control and Build Dependencies - Virtual Environment Only
+
+# ----------
+# Unit Tests
+
+pytest
+
+# ----------
+# Formatters
+
+black
+
+# ----------
+# Linters - Static Code Quality - these are the current modules I am interested
+# in using
+
+# flake8
+# flake8-annotations-complexity
+# flake8-breakpoint
+# flake8-builtins
+# flake8-comprehensions
+# flake8-eradicate
+# flake8-expression-complexity
+# pep8-naming
+# flake8-isort
+# flake8-logging-format
+# flake8-requirements
+# flake8-return # <- nice idea but buggy
+
+
+# ----------
+# Code Modification
+
+# vulture  # search for deadcode
+# isort    # Sort imports
+
+# ----------
+# Build
+
+# to make pyproject.toml work
+# https://pypa-build.readthedocs.io/en/latest/index.html
+
+build  # $ python -m build
+
+
+# ----------
+# Release to PyPI
+
+twine
+
