@@ -142,5 +142,8 @@ $RECYCLE.BIN/
 # ------------
 # Custom
 
-Makefile.env
-.env
+.sconsign.dblite
+.sconstruct.ini
+pdf/
+notebooks/*.pdf
+output/
