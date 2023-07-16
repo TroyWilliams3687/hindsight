@@ -71,6 +71,16 @@ for requirements in ./*requirements.txt; do
     "$VPYTHON" -m pip install --upgrade -r "${requirements}"
 done
 
+# Is the repo representing a package?
+PACKAGE=setup.cfg
+if [ -f "$PACKAGE" ]; then
+    echo "$PACKAGE exists. This repository can be installed."
+    $VPYTHON -m pip install -e .
+else
+    echo "$PACKAGE does not exist. This repository does not contain a package and cannot be installed."
+fi
+
+
 # ----
 
 echo "----"
