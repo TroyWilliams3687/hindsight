@@ -191,6 +191,33 @@ alias hss="~/repositories/projects/hindsight/.venv/bin/hindsight save"
 
 >NOTE: Set the path the aliases are referring to based on the location you have created the virtual environment.
 
+### Build/Rebuild Virtual Environment
+
+In Linux us the shell script to create or rebuild the virtual environment:
+
+```bash
+./support/build_venv.sh
+```
+
+>NOTE: If you run the script again, it will delete the contents of the virtual environment and install everything again.
+
+>NOTE: If you need to remove the virtual environment, simply delete the folder recursively.
+
+You will need to have `./support/path.ini` defined. You can do that by making a copy of `./support/sample.path.ini`:
+
+```bash
+cp ./support/sample.path.ini ./support/path.ini
+```
+
+You will also need to add the path to the Python binary within the file:
+
+```text
+PYTHON="/home/troy/opt/python_3.11.4/bin/python3.11"
+```
+
+>NOTE: The path to the binary needs to be contained within double quotes as per the example `sample.path.ini`
+
+>NOTE The support folder can be renamed to somethign more suitable depending on the project. See `./support/README.md` for more details.
 
 ## License
 
