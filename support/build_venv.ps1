@@ -45,7 +45,19 @@ Start-Process -NoNewWindow -FilePath $PYTHON -ArgumentList "-m venv --clear --up
 $VPYTHON=".venv\Scripts\python.exe"
 
 "Installing Requirements..."
-Start-Process -NoNewWindow -FilePath $VPYTHON -ArgumentList "-m pip install --upgrade -r requirements.txt" -Wait
+
+foreach ($f in Get-ChildItem -Path "./" -Filter "*requirements.txt"){
+    "Installing $f..."
+    Start-Process -NoNewWindow -FilePath $VPYTHON -ArgumentList "-m pip install --upgrade -r $f" -Wait
+}
+
+
+# Install the repo if it is a package
+if(Test-Path "./setup.cfg")
+{
+    "Installing repo as package..."
+    Start-Process -NoNewWindow -FilePath $VPYTHON -ArgumentList "-m pip install -e ." -Wait
+}
 
 
 "Installation and Configuration complete."
